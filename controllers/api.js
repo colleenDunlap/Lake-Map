@@ -28,8 +28,8 @@ const foursquare = require('node-foursquare')({
  * List of API examples.
  */
 exports.getApi = (req, res) => {
-  res.render('api/index', {
-    title: 'API Examples'
+  res.render('api/google-maps', {
+    title: 'Google Maps API'
   });
 };
 
@@ -641,8 +641,4 @@ exports.postPinterest = (req, res, next) => {
   });
 };
 
-exports.getGoogleMaps = (req, res) => {
-  res.render('api/google-maps', {
-    title: 'Google Maps API'
-  });
-};
+
