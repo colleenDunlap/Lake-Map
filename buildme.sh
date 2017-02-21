@@ -1,10 +1,13 @@
 #!/bin/bash
 
+rm ./data/mongod.lock
 ./mongod &
 mongo_pid=$!
 
 node app.js &
 node_pid=$!
+
+npm install
 
 sleep 5
 echo -e "\n\n\n-----\n\n\nApp running! Press enter to kill"
