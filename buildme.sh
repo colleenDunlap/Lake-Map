@@ -1,5 +1,7 @@
 #!/bin/bash
 
+npm install
+
 rm ./data/mongod.lock
 ./mongod &
 mongo_pid=$!
