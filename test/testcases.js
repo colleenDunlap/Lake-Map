@@ -26,3 +26,53 @@ describe('GET /nonexistenturl', () => {
       .expect(404, done);
   });
 });
+
+var MongoClient = require('mongodb').MongoClient
+, async = require('async')
+
+var assert = require('assert');
+
+MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
+
+describe('Mongo', function() {
+  describe('can connect to mongo', function() {
+    it('Can connect to mongo', function() {
+      assert.equal(err, null); //there should be no errors on connecting
+    });
+  });
+});
+})
+
+
+MongoClient.connect('mongodb://localhost:27017/lakemapv02', function(err, db) {
+describe('Database', function() {
+  describe('can connect to our database', function() {
+    it('Can connect to our database', function() {
+      assert.equal(err, null); //there should be no errors on connecting
+    });
+  });
+});
+})
+
+MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
+describe('Database', function() {
+  describe('can connect to database', function() {
+    it('Can connect to database', function() {
+      assert.equal(err, null); //there should be no errors on connecting
+    });
+  });
+});
+})
+
+MongoClient.connect('mongodb://localhost:27017/lakemapv02', function(err, db) {
+
+describe('Query db', function() {
+  describe('Query collections', function() {
+    it('assert collections are right', function() {
+      assert.equal(err, null); //there should be no errors on connecting
+	//assert.equal("0", db.pins.find().toArray()[0].pin_id);
+	console.log(db.db("lakemapv02").pins);
+    });
+  });
+});
+})
