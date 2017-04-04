@@ -3,6 +3,7 @@ extends layout
 block content
   h1 Map MKE
   p.lead Surrender to your FOMO.
+  img(src = "http://www.startplatz.de/wp-content/uploads/2015/07/Milwaukee-sign.jpg")
   hr
   .row
     .col-sm-6
@@ -10,9 +11,16 @@ block content
       p  Planning a fundraiser?  Hosting a club on campus?  Starting a pickup game?  Find others who want to join you!  
       p
         a.btn.btn-default(href='contact', role='button') View details »
+        
     .col-sm-6
       h2 Find an Event
       p  Need something new to do this weekend?  Trying to get out of your comfort zone?  Looking to meet new people?  Find a new, interesting event near you!
       p
         a.btn.btn-default(href='api', role='button') View details »
+        
+    .col-sm-6
+      h2 Find what's Trending
+      p  Want to REALLY surrender to that FOMO? See what everyone has been viewing this week.
+      p
+        a.btn.btn-default(href='featured', role='button') View details »
     
