@@ -7,7 +7,7 @@
         span.icon-bar
         span.icon-bar
       a.navbar-brand(href='/')
-        i.fa.fa-cube
+        i.fa.fa-map
         | Map MKE
     .collapse.navbar-collapse
       ul.nav.navbar-nav
@@ -17,6 +17,8 @@
           a(href='/api') Map
         li(class=(title == 'Contact') ? 'active' : undefined)
           a(href='/contact') Post Event
+        li(class=(title == 'Featured') ? 'active' : undefined)
+          a(href='/featured') Featured
         //li
           //a(href='/status') Status
       ul.nav.navbar-nav.navbar-right

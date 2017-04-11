@@ -69,10 +69,13 @@ MongoClient.connect('mongodb://localhost:27017/lakemapv02', function(err, db) {
 describe('Query db', function() {
   describe('Query collections', function() {
     it('assert collections are right', function() {
-      assert.equal(err, null); //there should be no errors on connecting
-	//assert.equal("0", db.pins.find().toArray()[0].pin_id);
-	console.log(db.db("lakemapv02").pins);
+      //assert.equal(err, null); //there should be no errors on connecting
+      //assert.notequal
+      
+	db.collection('pins').then(function(data){
+	  assert.equal("0", data.toArray()[0].pin_id);
     });
   });
 });
-})
+});
+});
