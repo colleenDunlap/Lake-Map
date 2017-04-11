@@ -142,10 +142,18 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 
 app.get('/api', apiController.getApi);
 app.get('/getPins', function(req,res){
-		var rows = [{"pin_id":"0","pin_name":"Marquette University","latitude":"42.038622","longitude":"-87.929836","address":"foo lane","user_id":"0","image_url":"http://foobar.png","description":"bar","timestamp":"2017-03-26"},{"pin_id":"1","pin_name":"Art Museum","latitude":"43.040120","longitude":"-87.896919","address":"foo lane","user_id":"0","image_url":"http://foobar.png","description":"bar","timestamp":"2017-03-26"},{"pin_id":"2","pin_name":"BMO CENTER","latitude":"43.043619","longitude":"-87.917316","address":"foo lane","user_id":"0","image_url":"http://foobar.png","description":"bar","timestamp":"2017-03-26"}]; 
+	var MongoClient = require('mongodb').MongoClient
+	, async = require('async')
 
-		res.end(JSON.stringify(rows));
-	});
+	MongoClient.connect('mongodb://localhost:27017/lakemapv02', function(err, db) {
+		db.collection('pins', function(err, coll){
+			coll.find().toArray(function(err,doc){
+		 		res.end(JSON.stringify(doc));
+			});
+		});
+//		 res.end(JSON.stringify(data));
+ 	});
+});
 /*i/lastfm', apiController.getLastfm);
 app.get('/api/nyt', apiController.getNewYorkTimes);
 app.get('/api/aviary', apiController.getAviary);
