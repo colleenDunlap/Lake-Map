@@ -141,7 +141,21 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
  */
 
 app.get('/api', apiController.getApi);
-/*app.get('/api/lastfm', apiController.getLastfm);
+app.get('/getPins', function(req,res){
+	var MongoClient = require('mongodb').MongoClient
+	, async = require('async')
+
+	MongoClient.connect('mongodb://localhost:27017/lakemapv02', function(err, db) {
+		db.collection('pins', function(err, coll){
+			coll.find().toArray(function(err,doc){
+		 		res.render('api/google-maps',{ allPins : JSON.stringify(doc)});
+			});
+		});
+//		 res.end(JSON.stringify(data));
+ 	});
+	
+});
+/*i/lastfm', apiController.getLastfm);
 app.get('/api/nyt', apiController.getNewYorkTimes);
 app.get('/api/aviary', apiController.getAviary);
 app.get('/api/steam', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getSteam);
