@@ -148,13 +148,12 @@ app.get('/getPins', function(req,res){
 	MongoClient.connect('mongodb://localhost:27017/lakemapv02', function(err, db) {
 		db.collection('pins', function(err, coll){
 			coll.find().toArray(function(err,doc){
-		 		res.render('api/google-maps',{ allPins : JSON.stringify(doc)});
+		 		var json = JSON.stringify(doc);
+				res.end(json)});
 			});
 		});
 //		 res.end(JSON.stringify(data));
  	});
-	
-});
 /*i/lastfm', apiController.getLastfm);
 app.get('/api/nyt', apiController.getNewYorkTimes);
 app.get('/api/aviary', apiController.getAviary);

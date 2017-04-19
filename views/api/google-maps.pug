@@ -30,9 +30,14 @@ block content
 
   script.
 
+    function initMap() {
+    axios.get('https://blank-linux-davidjvitale.c9users.io/getPins')
+        .catch(err => {console.log(err)})
+        .then(res =>
+        {console.log(res)
+        var superchargers = res.data;
     var please = '#{allPins}';
     var map;
-    var superchargers = new Array();
    var locations = [];
     var latitudes = [];
     var longitudes = [];
@@ -45,16 +50,15 @@ block content
         latitude: latitudes[i],
         longitude: longitudes[i]
     });}
-    
-    //}
 
-    function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 43.038234, lng: -87.943344 },
         zoom: 12
       });
 
       superchargers.forEach(function(sc) {
+        console.log("This sc is being added:")
+        console.log(sc)
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(sc.latitude, sc.longitude),
           icon: {
@@ -62,11 +66,12 @@ block content
             scaledSize: new google.maps.Size(23, 33)
           },
           map: map,
-          title: sc.location,
+          title: sc.pin_name,
           animation: google.maps.Animation.DROP
         });
       });
+    });
     }
-
   script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBO1wzrMyqQ_3URF0gr7NvFDeBiqZJ9F7g&callback=initMap')
   script(src='/js/axios.min.js')
+
