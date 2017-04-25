@@ -23,14 +23,14 @@ exports.getContact = (req, res) => {
  * Send a contact form via Nodemailer.
  */
 exports.postContact = (req, res) => {
-
-  console.log(req);
+  
+  console.log(req.body);
   req.assert('name', 'Event cannot be blank').notEmpty();
   req.assert('latitude', 'Latitude cannot be blank').notEmpty();
   req.assert('longitude', 'Longitude cannot be blank').notEmpty();
   req.assert('message', 'Description cannot be blank').notEmpty();
   
-
+  
   const errors = req.validationErrors();
   
   if (errors) {
@@ -43,6 +43,7 @@ exports.postContact = (req, res) => {
     longitude: '${req.body.longitude}'
     
   };
+  
   /*
   const mailOptions = {
     to: 'colleen.dunlap@marquette.edu',
