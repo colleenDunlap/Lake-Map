@@ -24,7 +24,8 @@ exports.getContact = (req, res) => {
  */
 exports.postContact = (req, res) => {
   req.assert('name', 'Event cannot be blank').notEmpty();
-  req.assert('email', 'Must add a location').notEmpty();
+  req.assert('latitude', 'Latitude cannot be blank').notEmpty();
+  req.assert('longitude', 'Longitude cannot be blank').notEmpty();
   req.assert('message', 'Description cannot be blank').notEmpty();
 
   const errors = req.validationErrors();
