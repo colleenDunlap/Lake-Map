@@ -23,26 +23,36 @@ exports.getContact = (req, res) => {
  * Send a contact form via Nodemailer.
  */
 exports.postContact = (req, res) => {
+
+  console.log(req);
   req.assert('name', 'Event cannot be blank').notEmpty();
   req.assert('latitude', 'Latitude cannot be blank').notEmpty();
   req.assert('longitude', 'Longitude cannot be blank').notEmpty();
   req.assert('message', 'Description cannot be blank').notEmpty();
+  
 
   const errors = req.validationErrors();
-
+  
   if (errors) {
     req.flash('errors', errors);
     return res.redirect('/contact');
   }
-
-  const mailOptions = {
-    to: 'your@email.com',
-    from: `${req.body.name} <${req.body.email}>`,
-    subject: 'Contact Form | Hackathon Starter',
-    text: req.body.message
+  const newPin = {
+    pin_name: '${req.body.name}',
+    latitude: '${req.body.latitude}',
+    longitude: '${req.body.longitude}'
+    
   };
+  /*
+  const mailOptions = {
+    to: 'colleen.dunlap@marquette.edu',
+    from: `${req.body.name} <${req.body.message}>`,
+    subject: 'Contact Form | Hackathon Starter',
+    text: req.body.latitude
+  };
+*/
 
-  transporter.sendMail(mailOptions, (err) => {
+  transporter.sendMail(newPin, (err) => {
     if (err) {
       req.flash('errors', { msg: err.message });
       return res.redirect('/contact');

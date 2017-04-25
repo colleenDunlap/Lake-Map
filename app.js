@@ -154,6 +154,12 @@ app.get('/getPins', function(req,res){
 		});
 //		 res.end(JSON.stringify(data));
  	});
+
+
+app.post('/postPins', function(req,res){
+	console.log("This request was received!");
+	console.log(req);
+});
 /*i/lastfm', apiController.getLastfm);
 app.get('/api/nyt', apiController.getNewYorkTimes);
 app.get('/api/aviary', apiController.getAviary);
