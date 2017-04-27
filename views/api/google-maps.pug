@@ -59,6 +59,9 @@ block content
       superchargers.forEach(function(sc) {
         console.log("This sc is being added:")
         console.log(sc)
+
+        var infowindow = new google.maps.InfoWindow({content: sc.description});
+
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(sc.latitude, sc.longitude),
           icon: {
@@ -69,6 +72,7 @@ block content
           title: sc.pin_name,
           animation: google.maps.Animation.DROP
         });
+         marker.addListener('click', function(){infowindow.open(map, marker)});
       });
     });
     }
