@@ -3,11 +3,11 @@ Map-based web application that connects users from around the world through even
 
 -----
 
-![](http://i983.photobucket.com/albums/ae313/DavidJosephVitale/LakeMapView_zpshmyiqycg.gif)
+![](https://raw.githubusercontent.com/colleenDunlap/master/pics/1.gif)
 
 -----
 
-![](http://i983.photobucket.com/albums/ae313/DavidJosephVitale/LakeMapPost_zpszzxbxs6a.gif)
+![](https://raw.githubusercontent.com/colleenDunlap/master/pics/2.gif)
 
 -----
 
